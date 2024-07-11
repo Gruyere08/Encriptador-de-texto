@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador de texto Alura</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
@@ -12,18 +13,19 @@
 
     </header>
     <main>
-        <img src="/assets/Logo.png" alt="Logo de Alura">
+        <img class="Main__Logo" src="/assets/Logo.png" alt="Logo de Alura">
         <section class="Main__AreaDeTrabajo">
             <h1>Encriptador de texto GruCipher</h1>
-            <textarea placeholder="Ingrese el texto aqui"></textarea>
+            <textarea class="Main__AreaDeTrabajo__Campo" placeholder="Ingrese el texto aqui"></textarea>
             <p class="Main__AreaDeTrabajo__advertencia">Solo letras minusculas y sin acentos</p>
             <div class="Main__AreaDeTrabajo__Botones">
                 <button type="button" class="Main__AreaDeTrabajo__Botones__encriptar">Encriptar</button>
-                <button type="button" class="Main__AreaDeTrabajo__Botones__desencriptar">Desencriptar</button>               
+                <button type="button" class="Main__AreaDeTrabajo__Botones__desencriptar">Desencriptar</button>
             </div>
         </section>
         <section class="Main__AreaDeResultados">
-
+            <textarea class="Main__AreaDeResultados__campo"></textarea>
+            <button type="button" class="Main__AreaDeTrabajo__Botones__encriptar">Copiar</button>
         </section>
     </main>
     <footer>
