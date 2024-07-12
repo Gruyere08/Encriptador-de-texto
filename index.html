@@ -16,21 +16,22 @@
         <img class="Main__Logo" src="/assets/Logo.png" alt="Logo de Alura">
         <section class="Main__AreaDeTrabajo">
             <h1 class="Main__AreaDeTrabajo_titulo">Encriptador de texto GruCipher</h1>
-            <textarea class="Main__AreaDeTrabajo__Campo" placeholder="Ingrese el texto aqui"></textarea>
+            <textarea id="campoEntrada" class="Main__AreaDeTrabajo__Campo" placeholder="Ingrese el texto aqui"></textarea>
             <p class="Main__AreaDeTrabajo__advertencia">Solo letras minusculas y sin acentos</p>
             <div class="Main__AreaDeTrabajo__Botones">
-                <button type="button" class="Main__AreaDeTrabajo__Botones__principal">Encriptar</button>
+                <button type="button" class="Main__AreaDeTrabajo__Botones__principal" onclick="encriptar()">Encriptar</button>
                 <button type="button" class="Main__AreaDeTrabajo__Botones__secundario">Desencriptar</button>
             </div>
         </section>
         <section class="Main__AreaDeResultados">
-            <textarea class="Main__AreaDeResultados__campo"></textarea>
+            <textarea id="campoSalida" class="Main__AreaDeResultados__campo"></textarea>
             <button type="button" class="Main__AreaDeResultados__Boton">Copiar</button>
         </section>
     </main>
     <footer>
 
     </footer>
+    <script src="app.js"></script>
 </body>
 
 </html>
