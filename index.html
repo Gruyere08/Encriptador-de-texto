@@ -16,20 +16,27 @@
         <img class="Main__Logo" src="/assets/Logo.png" alt="Logo de Alura">
         <section class="Main__AreaDeTrabajo">
             <h1 class="Main__AreaDeTrabajo_titulo">Encriptador de texto GruCipher</h1>
-            <textarea id="campoEntrada" class="Main__AreaDeTrabajo__Campo" placeholder="Ingrese el texto aqui"></textarea>
-            <p class="Main__AreaDeTrabajo__advertencia">Solo letras minusculas y sin acentos</p>
+            <div class="Main__AreaDeTrabajo__Seccion">
+                <textarea id="campoEntrada" class="Main__AreaDeTrabajo__Seccion__Campo"
+                    placeholder="Ingrese el texto aqui"></textarea>
+                <p class="Main__AreaDeTrabajo__Seccion__advertencia">
+                    <img class="Main__AreaDeTrabajo__Seccion__advertencia_icono" src="/assets/triangle-warning.svg" alt="Alerta">
+                    Solo letras minusculas y sin acentos</p>
+            </div>
             <div class="Main__AreaDeTrabajo__Botones">
-                <button type="button" class="Main__AreaDeTrabajo__Botones__principal" onclick="encriptar()">Encriptar</button>
+                <button type="button" class="Main__AreaDeTrabajo__Botones__principal"
+                    onclick="encriptar()">Encriptar</button>
                 <button type="button" class="Main__AreaDeTrabajo__Botones__secundario">Desencriptar</button>
             </div>
         </section>
         <section class="Main__AreaDeResultados">
             <textarea id="campoSalida" class="Main__AreaDeResultados__campo"></textarea>
+            <img src="" alt="">
             <button type="button" class="Main__AreaDeResultados__Boton">Copiar</button>
         </section>
     </main>
     <footer>
-
+        <div> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
     </footer>
     <script src="app.js"></script>
 </body>

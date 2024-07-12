@@ -3,17 +3,25 @@
 
 
 :root {
-    --color-uno: #0b0d10;
+    --color-uno: #101318;
     --color-dos: #161a20;
     --color-tres: #474b63;
-    --color-cuatro: #9290C3;
+    --color-cuatro: #788581;
     --color-blanco: #FFF0F5;
 
-    --color-boton: #4C3BCF;
+    --color-boton1: #4C3BCF;
     --color-boton2: #50B498;
 
-    --color-Luz1:#4c3bcf93;
-    --color-Luz2:#50b49896;
+    --color-click1: #6d60cf;
+    --color-click2: #7ac2ad;
+
+    --color-recuadro: #4e7eb1;
+
+    --color-Luz1: #4c3bcf93;
+    --color-Luz2: #50b49896;
+
+    --color-luz-Interior1: #4c3bcf3f;
+    --color-luz-Interior2: #50b49846;
 
     --fuente-Inter: "Inter", sans-serif;
 }
@@ -21,17 +29,18 @@
 
 * {
     padding: 0;
-    margin:0;
-    border-color: var(--color-tres);
+    margin: 0;
     color: var(--color-blanco)
 }
 
 body {
-    display:flex;
+    
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     box-sizing: border-box;
-    
+
 }
 
 main {
@@ -41,69 +50,97 @@ main {
     width: 100%;
     padding: 40px 2.8%;
     flex-wrap: wrap;
-    background-image: linear-gradient(135deg,var(--color-uno) 75%, var(--color-uno));
+    background-color: var(--color-uno);
 }
 
-.Main__Logo{
+.Main__Logo {
     width: 120px;
     height: 48px;
 }
 
 
 
-/*Primera seccion*/
+/*###############################################################################*/
 
-.Main__AreaDeTrabajo{
+
+/*Seccion central*/
+
+.Main__AreaDeTrabajo {
     width: 47.2%;
     display: flex;
     flex-direction: column;
-
+    height: 90vh;
+    justify-content: space-between;
 
 }
 
-.Main__AreaDeTrabajo_titulo{
+.Main__AreaDeTrabajo_titulo {
     font-family: var(--fuente-Inter);
     font-size: 2rem;
+    background: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+            background-clip: text;
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
 }
 
-.Main__AreaDeTrabajo__Campo{
-    margin-top: 128px;
+.Main__AreaDeTrabajo__Seccion {
+    background-image: linear-gradient(to bottom right, var(--color-tres), var(--color-dos), var(--color-uno));
+    ;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.Main__AreaDeTrabajo__Seccion__Campo {
     height: 28.125vh;
-    width: 94%;
+    width: 80%;
     resize: none;
     border-radius: 32px;
-    border-color: var(--color-tres);
-    padding: 16px;
-    background-image: linear-gradient(145deg,var(--color-dos),var(--color-dos), var(--color-uno));
+    border-color: var(--color-dos);
     border-width: 2px;
+    padding: 16px;
+    background-image: linear-gradient(145deg, var(--color-dos), var(--color-dos), var(--color-uno));
     font-family: var(--fuente-Inter);
     font-weight: 400;
-    font-size: 2rem;
-    position: relative;
+    font-size: 1.5rem;
+    transition: border-color 0.3s;
 }
 
 
-textarea::placeholder {
-    color: var(--color-cuatro);
-    font-style: italic;
+
+.Main__AreaDeTrabajo__Seccion__advertencia {
+    border-radius: 1000px;
+    background-color: var(--color-tres);
+    font-family: var(--fuente-Inter);
+    padding: 0.5%;
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
-.Main__AreaDeTrabajo__advertencia{
-
+.Main__AreaDeTrabajo__Seccion__advertencia_icono {
+    height: 0.75rem;
+    width: 0.75rem;
 }
 
 .Main__AreaDeTrabajo__Botones {
     height: 120px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    background-image: linear-gradient(145deg,var(--color-tres),var(--color-dos), var(--color-uno));
+    background-image: linear-gradient(to bottom right, var(--color-tres), var(--color-dos), var(--color-uno));
     border-radius: 32px;
+    z-index: 0;
 
 }
 
-.Main__AreaDeTrabajo__Botones__principal{
+.Main__AreaDeTrabajo__Botones__principal {
     height: 67px;
     width: 45%;
     border-radius: 1000px;
@@ -113,64 +150,99 @@ textarea::placeholder {
     font-weight: 400;
     font-size: 1rem;
     transition: background-color 0.2s;
-    border-color:var(--color-tres);
-    border-style: solid;
+    border: none;
     background-color: var(--color-dos);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: auto;
 }
 
-.Main__AreaDeTrabajo__Botones__principal:hover{
-    background-image: linear-gradient(to bottom right,var(--color-boton2),var(--color-boton));
+.Main__AreaDeTrabajo__Botones__principal::after {
+    content: "";
+    position: absolute;
+    border-radius: 1000px;
+    width: 103%;
+    height: 108%;
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    z-index: -1;
+}
+
+.Main__AreaDeTrabajo__Botones__principal:hover {
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
     box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
     z-index: auto;
 }
 
-.Main__AreaDeTrabajo__Botones__principal:active{
-    background-image: linear-gradient(var(--color-blanco),var(--color-cuatro));
+.Main__AreaDeTrabajo__Botones__principal:active {
+    background-image: linear-gradient(to bottom right, var(--color-click2), var(--color-click1));
     z-index: auto;
 }
 
-.Main__AreaDeTrabajo__Botones__secundario{
+.Main__AreaDeTrabajo__Botones__secundario {
 
     height: 67px;
     width: 45%;
     border-radius: 1000px;
-    background-color: var(--color-uno);;
+    background-color: var(--color-uno);
+    ;
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1rem;
-    border-color:var(--color-tres);
-    border-style: solid;
+    border: none;
     transition: background-color 0.2s;
     background-color: var(--color-dos);
 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: auto;
 }
 
-.Main__AreaDeTrabajo__Botones__secundario:hover{
-    background-image: linear-gradient(to bottom right,var(--color-boton2),var(--color-boton));
+.Main__AreaDeTrabajo__Botones__secundario::after {
+    content: "";
+    position: absolute;
+    border-radius: 1000px;
+    width: 103%;
+    height: 108%;
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    z-index: -1;
+}
+
+.Main__AreaDeTrabajo__Botones__secundario:hover {
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
     box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
     z-index: auto;
 }
 
-.Main__AreaDeTrabajo__Botones__secundario:active{
-    background-image: linear-gradient(var(--color-blanco),var(--color-cuatro));
+.Main__AreaDeTrabajo__Botones__secundario:active {
+    background-image: linear-gradient(to bottom right, var(--color-click2), var(--color-click1));
     z-index: auto;
 }
 
-/*Segunda seccion*/
 
-.Main__AreaDeResultados{
+
+
+/*###############################################################################*/
+
+/*Seccion derecha*/
+
+.Main__AreaDeResultados {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 27.5%;
     border-radius: 32px;
-    
-    background-image: linear-gradient(145deg,var(--color-tres),var(--color-dos), var(--color-uno));
+
+    background-image: linear-gradient(145deg, var(--color-tres), var(--color-dos), var(--color-uno));
     height: 90vh;
     z-index: 0;
 }
 
-.Main__AreaDeResultados__campo{
+.Main__AreaDeResultados__campo {
     margin-top: 32px;
     margin-bottom: 32px;
     resize: none;
@@ -179,80 +251,101 @@ textarea::placeholder {
     height: 70vh;
     width: 80%;
     padding: 16px;
-    background-image: linear-gradient(145deg,var(--color-dos),var(--color-dos), var(--color-uno));
+    background-image: linear-gradient(145deg, var(--color-dos), var(--color-dos), var(--color-uno));
     border-width: 2px;
     font-family: var(--fuente-Inter);
     font-weight: 400;
-    font-size: 3rem;
+    font-size: 1.5rem;
     transition: border-color 0.3s;
 }
 
-.Main__AreaDeResultados__Boton{
+.Main__AreaDeResultados__Boton {
     margin-bottom: 32px;
     height: 67px;
     width: 80%;
     border-radius: 1000px;
-    border:none;
+    border: none;
     background-color: var(--color-dos);
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1rem;
-    position:relative;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: auto;
 }
 
-.Main__AreaDeResultados__Boton::after{
+.Main__AreaDeResultados__Boton::after {
     content: "";
     position: absolute;
     height: 107%;
     width: 102%;
     border-radius: 1000px;
-    background-image: linear-gradient(to bottom right,var(--color-boton2),var(--color-boton));
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
     z-index: var(--color-Luz1);
     z-index: -1;
 }
 
-.Main__AreaDeResultados__Boton:hover{
-    background-image: linear-gradient(to bottom right,var(--color-boton2),var(--color-boton));
+.Main__AreaDeResultados__Boton:hover {
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
     box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
     z-index: auto;
 
 }
 
-.Main__AreaDeResultados__Boton:active{
-    background-image: linear-gradient(var(--color-blanco),var(--color-cuatro));
+.Main__AreaDeResultados__Boton:active {
+    background-image: linear-gradient(to bottom right, var(--color-click2), var(--color-click1));
     z-index: auto;
 }
 
+
+/*###############################################################################*/
+
+/*Configuraciones generales*/
+
 textarea:focus {
-    border-color: var(--color-blanco);
+    border-color: var(--color-recuadro);
     outline: none;
     border-width: 2px;
+    box-shadow: inset -40px 0 100px var(--color-luz-Interior1), inset 40px 0 100px var(--color-luz-Interior2), 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
+
+}
+
+textarea::placeholder {
+    color: var(--color-cuatro);
+    font-style: italic;
+}
+
+
+textarea::-webkit-scrollbar {
+    width: 15px;
     
 }
 
 
-/* Estilizando la barra de desplazamiento */
-textarea::-webkit-scrollbar {
-    width: 15px; /* Ancho de la barra lateral */
-}
-
-/* Fondo de la barra de desplazamiento */
 textarea::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: transparent;
     border-radius: 5px;
 }
 
-/* Handle de la barra de desplazamiento */
+
 textarea::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 5px;
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    border-radius: 1000px;
 }
 
-/* Handle al pasar el mouse */
+
 textarea::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background-image: linear-gradient(to bottom right, var(--color-click2), var(--color-click1));
+}
+
+
+
+/*###############################################################################*/
+
+/*Pie de pagina*/
+
+footer{
+    background-color: var(--color-uno);
 }
