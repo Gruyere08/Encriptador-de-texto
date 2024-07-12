@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+
 :root {
     --color-oscuro: #070F2B;
     --color-semioscuro: #1B1A55;
@@ -5,8 +9,7 @@
     --color-claro: #9290C3;
     --color-blanco: #FFF0F5;
 
-    --fuente-krona: 'Krona One', sans-serif;
-    --fuente-montserrat: 'Montserrat', sans-serif;
+    --fuente-Inter: "Inter", sans-serif;
 }
 
 
@@ -28,6 +31,7 @@ body {
 main {
     display: flex;
     gap: 5.5%;
+    height: 100vh;
     width: 100%;
     padding: 40px 2.8%;
     flex-wrap: wrap;
@@ -47,20 +51,27 @@ main {
     width: 47.2%;
     display: flex;
     flex-direction: column;
+
+
 }
 
 .Main__AreaDeTrabajo_titulo{
-
+    font-family: var(--fuente-Inter);
+    font-size: 2rem;
 }
 
 .Main__AreaDeTrabajo__Campo{
     margin-top: 128px;
     height: 28.125vh;
-    width: 90%;
+    width: 94%;
     resize: none;
     border-radius: 32px;
     padding: 16px;
     background-color: var(--color-semioscuro);
+    border-width: 2px;
+    font-family: var(--fuente-Inter);
+    font-weight: 400;
+    font-size: 2rem;
 }
 
 .Main__AreaDeTrabajo__advertencia{
@@ -68,14 +79,31 @@ main {
 }
 
 .Main__AreaDeTrabajo__Botones {
+    display: flex;
+    justify-content: space-between;
 
 }
 
 .Main__AreaDeTrabajo__Botones__principal{
-
+    margin-bottom: 32px;
+    height: 67px;
+    width: 45%;
+    border-radius: 24px;
+    background-color: transparent;
+    font-family: var(--fuente-Inter);
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 .Main__AreaDeTrabajo__Botones__secundario{
+    margin-bottom: 32px;
+    height: 67px;
+    width: 45%;
+    border-radius: 24px;
+    background-color: transparent;
+    font-family: var(--fuente-Inter);
+    font-weight: 400;
+    font-size: 1rem;
 
 }
 
@@ -100,6 +128,10 @@ main {
     width: 80%;
     padding: 16px;
     background-color: var(--color-oscuro);
+    border-width: 2px;
+    font-family: var(--fuente-Inter);
+    font-weight: 400;
+    font-size: 3rem;
 }
 
 .Main__AreaDeResultados__Boton{
@@ -108,4 +140,39 @@ main {
     width: 80%;
     border-radius: 24px;
     background-color: transparent;
+    font-family: var(--fuente-Inter);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+
+
+textarea:focus {
+    border-color: var(--color-blanco);
+    outline: none;
+    border-width: 2px;
+    
+}
+
+
+/* Estilizando la barra de desplazamiento */
+textarea::-webkit-scrollbar {
+    width: 15px; /* Ancho de la barra lateral */
+}
+
+/* Fondo de la barra de desplazamiento */
+textarea::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 5px;
+}
+
+/* Handle de la barra de desplazamiento */
+textarea::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 5px;
+}
+
+/* Handle al pasar el mouse */
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
