@@ -233,6 +233,7 @@ main {
 .Main__AreaDeResultados {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 27.5%;
     border-radius: 32px;
@@ -240,6 +241,7 @@ main {
     background-image: linear-gradient(145deg, var(--color-tres), var(--color-dos), var(--color-uno));
     height: 90vh;
     z-index: 0;
+    position: relative;
 }
 
 .Main__AreaDeResultados__campo {
@@ -257,6 +259,27 @@ main {
     font-weight: 400;
     font-size: 1.5rem;
     transition: border-color 0.3s;
+    display: none;
+}
+
+
+.Main__AreaDeResultados__imagenInicial{
+    width: 70%;
+}
+
+.Main__AreaDeResultados__Titulo{
+    font-family: var(--fuente-Inter);
+    font-size: 2rem;
+    color: var(--color-cuatro);
+    text-align: center;
+    margin: 0 4%;
+}
+
+.Main__AreaDeResultados__parrafo{
+    font-family: var(--fuente-Inter);
+    font-size: 1rem;
+    text-align: center;
+    color: var(--color-cuatro);
 }
 
 .Main__AreaDeResultados__Boton {
@@ -274,6 +297,7 @@ main {
     justify-content: center;
     align-items: center;
     z-index: auto;
+    visibility: hidden;
 }
 
 .Main__AreaDeResultados__Boton::after {
@@ -349,3 +373,10 @@ textarea::-webkit-scrollbar-thumb:hover {
 footer{
     background-color: var(--color-uno);
 }
+
+/*
+.oculto{
+    display:none;
+    visibility: hidden;
+}
+    */
