@@ -35,6 +35,11 @@
     color: var(--color-blanco)
 }
 
+*::selection{
+    background-color: var(--color-recuadro);
+}
+
+
 body {
     
     display: flex;
@@ -49,12 +54,13 @@ main {
     display: flex;
     gap: 5.5%;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     padding: 40px 2.8%;
     background-color: var(--color-uno);
 }
 
 .Main__Logo {
+    user-select: none;
     margin-left: 5%;
     width: 48px;
     height: 48px;
@@ -77,6 +83,7 @@ main {
 }
 
 .Main__AreaDeTrabajo_titulo {
+    user-select: none;
     font-family: var(--fuente-Inter);
     font-size: 2rem;
     background: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
@@ -111,6 +118,7 @@ main {
     transition: border-color 0.3s , background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
 }
 
+
 .Main__AreaDeTrabajo__Seccion__Abajo{
     margin-top: 20px;
     width: 85%;
@@ -128,12 +136,13 @@ main {
     font-size: 0.75rem;
     display: flex;
     justify-content: center;
+    gap: 10px;
     align-items: center;
 }
 
 .Main__AreaDeTrabajo__Seccion__Abajo__advertencia_icono {
-    height: 0.75rem;
-    width: 0.75rem;
+    height: 1rem;
+    width: 1rem;
 
 }
 
@@ -235,7 +244,7 @@ main {
 }
 
 .Main__AreaDeTrabajo__Botones__principal:active {
-    background-image: linear-gradient(to bottom right, var(--color-click2), var(--color-click1));
+    background: linear-gradient(to bottom right, var(--color-click2), var(--color-click1));
     z-index: auto;
 }
 
@@ -323,15 +332,18 @@ main {
 
 
 .Main__AreaDeResultados__imagenInicial{
+    user-select: none;
     width: 70%;
 }
 
 .Main__AreaDeResultados__imagenError{
+    user-select: none;
     width: 70%;
     display:none;
 }
 
 .Main__AreaDeResultados__Titulo{
+    user-select: none;
     font-family: var(--fuente-Inter);
     font-size: 2rem;
     color: var(--color-recuadro);
@@ -340,6 +352,7 @@ main {
 }
 
 .Main__AreaDeResultados__parrafo{
+    user-select: none;
     font-family: var(--fuente-Inter);
     font-size: 1rem;
     text-align: center;
@@ -397,6 +410,11 @@ strong{
     color: var(--color-boton1);
 }
 
+
+textarea:hover{
+    border-color: var(--color-tres);
+    box-shadow: inset -40px 0 100px -40px var(--color-luz-Interior1), inset 40px 0 100px -40px var(--color-luz-Interior2), 40px 0 100px -40px var(--color-Luz1), -40px 0 100px -40px var(--color-Luz2);
+}
 
 textarea:focus {
     border-color: var(--color-recuadro);
