@@ -24,6 +24,8 @@
     --color-luz-Interior2: #50b49846;
 
     --fuente-Inter: "Inter", sans-serif;
+
+    --transicion-botones: 0.3s;
 }
 
 
@@ -53,7 +55,8 @@ main {
 }
 
 .Main__Logo {
-    width: 120px;
+    margin-left: 5%;
+    width: 48px;
     height: 48px;
 }
 
@@ -105,7 +108,7 @@ main {
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1.5rem;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s , background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
 }
 
 .Main__AreaDeTrabajo__Seccion__Abajo{
@@ -142,7 +145,7 @@ main {
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1rem;
-    transition: background-color 0.2s;
+    transition: background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
     border: none;
     background-color: var(--color-dos);
 
@@ -167,8 +170,8 @@ main {
 
 
 .Main__AreaDeTrabajo__Seccion__Abajo__Limpiar:hover {
-    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
-    box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
+    background-color: transparent;
+    box-shadow: 40px 0 100px -3px var(--color-Luz1), -40px 0 100px -3px var(--color-Luz2);
     z-index: auto;
 }
 
@@ -204,7 +207,7 @@ main {
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1rem;
-    transition: background-color 0.2s;
+    transition: background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
     border: none;
     background-color: var(--color-dos);
 
@@ -221,12 +224,12 @@ main {
     border-radius: 1000px;
     width: 103%;
     height: 108%;
-    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    background: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
     z-index: -1;
 }
 
 .Main__AreaDeTrabajo__Botones__principal:hover {
-    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    background-color: transparent;
     box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
     z-index: auto;
 }
@@ -247,7 +250,7 @@ main {
     font-weight: 400;
     font-size: 1rem;
     border: none;
-    transition: background-color 0.2s;
+    transition: background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
     background-color: var(--color-dos);
 
     position: relative;
@@ -267,8 +270,9 @@ main {
     z-index: -1;
 }
 
+
 .Main__AreaDeTrabajo__Botones__secundario:hover {
-    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    background-color: transparent;
     box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
     z-index: auto;
 }
@@ -313,7 +317,7 @@ main {
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1.5rem;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s , background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
     display: none;
 }
 
@@ -358,6 +362,7 @@ main {
     align-items: center;
     z-index: auto;
     visibility: hidden;
+    transition: background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
 }
 
 .Main__AreaDeResultados__Boton::after {
@@ -372,7 +377,7 @@ main {
 }
 
 .Main__AreaDeResultados__Boton:hover {
-    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    background-color: transparent;
     box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
     z-index: auto;
 
