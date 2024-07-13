@@ -19,9 +19,12 @@
             <div class="Main__AreaDeTrabajo__Seccion">
                 <textarea id="campoEntrada" class="Main__AreaDeTrabajo__Seccion__Campo"
                     placeholder="Ingrese el texto aqui"></textarea>
-                <p class="Main__AreaDeTrabajo__Seccion__advertencia">
-                    <img class="Main__AreaDeTrabajo__Seccion__advertencia_icono" src="/assets/triangle-warning.svg" alt="Alerta">
-                    Solo letras minusculas y sin acentos</p>
+                <div class="Main__AreaDeTrabajo__Seccion__Abajo">
+                    <p class="Main__AreaDeTrabajo__Seccion__Abajo__advertencia">
+                        <img class="Main__AreaDeTrabajo__Seccion__Abajo__advertencia_icono" src="/assets/triangle-warning.svg" alt="Alerta">
+                        Solo letras minusculas y sin tildes</p>
+                        <button onclick="limpiar()" type="button" class="Main__AreaDeTrabajo__Seccion__Abajo__Limpiar">Limpiar</button>
+                </div>
             </div>
             <div class="Main__AreaDeTrabajo__Botones">
                 <button type="button" class="Main__AreaDeTrabajo__Botones__principal"
@@ -30,15 +33,17 @@
             </div>
         </section>
         <section class="Main__AreaDeResultados">
-            <textarea id="campoSalida" class="Main__AreaDeResultados__campo oculto"></textarea>
+            <textarea readonly id="campoSalida" class="Main__AreaDeResultados__campo oculto"></textarea>
+            <img id="imagenError" class="Main__AreaDeResultados__imagenError" src="/assets/sad.png" alt="Imagen de alguien triste">
             <img id="imagenInicial" class="Main__AreaDeResultados__imagenInicial" src="/assets/alone.png" alt="Imagen de alguien aburrido">
             <h2 id="tituloResultado" class="Main__AreaDeResultados__Titulo">Todavía no has escrito nada</h2>
-            <p id="parrafoResultado" class="Main__AreaDeResultados__parrafo">Ingresa un texto para ser encriptado o desencriptado</p>
+            <p id="parrafoResultado" class="Main__AreaDeResultados__parrafo">Ingresa el texto que desees encriptar o desencriptar</p>
             <button id="copiar" type="button" class="Main__AreaDeResultados__Boton oculto">Copiar</button>
         </section>
     </main>
     <footer>
         <div> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+        <div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
     </footer>
     <script src="app.js"></script>
 </body>

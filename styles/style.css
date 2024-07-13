@@ -49,7 +49,6 @@ main {
     height: 100vh;
     width: 100%;
     padding: 40px 2.8%;
-    flex-wrap: wrap;
     background-color: var(--color-uno);
 }
 
@@ -109,24 +108,81 @@ main {
     transition: border-color 0.3s;
 }
 
+.Main__AreaDeTrabajo__Seccion__Abajo{
+    margin-top: 20px;
+    width: 85%;
+    display:flex;
+    justify-content: space-between;
+    z-index: 0;
+}
 
-
-.Main__AreaDeTrabajo__Seccion__advertencia {
+.Main__AreaDeTrabajo__Seccion__Abajo__advertencia {
+    height: 50%;
     border-radius: 1000px;
     background-color: var(--color-tres);
     font-family: var(--fuente-Inter);
-    padding: 0.5%;
+    padding: 0.5% 2%;
     font-size: 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
 }
 
-.Main__AreaDeTrabajo__Seccion__advertencia_icono {
+.Main__AreaDeTrabajo__Seccion__Abajo__advertencia_icono {
     height: 0.75rem;
     width: 0.75rem;
+
 }
+
+.Main__AreaDeTrabajo__Seccion__Abajo__Limpiar{
+    height: 34px;
+    width: 25%;
+    border-radius: 1000px;
+    border-style: solid;
+    font-family: var(--fuente-Inter);
+    font-weight: 400;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    border: none;
+    background-color: var(--color-dos);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: auto;
+}
+
+
+.Main__AreaDeTrabajo__Seccion__Abajo__Limpiar::after {
+    content: "";
+    position: absolute;
+    border-radius: 1000px;
+    width: 105%;
+    height: 110%;
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    z-index: -1;
+}
+
+
+
+.Main__AreaDeTrabajo__Seccion__Abajo__Limpiar:hover {
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
+    z-index: auto;
+}
+
+.Main__AreaDeTrabajo__Seccion__Abajo__Limpiar:active {
+    background-image: linear-gradient(to bottom right, var(--color-click2), var(--color-click1));
+    z-index: auto;
+}
+
+
+
+
+
+
+
 
 .Main__AreaDeTrabajo__Botones {
     height: 120px;
@@ -145,7 +201,6 @@ main {
     width: 45%;
     border-radius: 1000px;
     border-style: solid;
-    background-color: var(--color-uno);
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1rem;
@@ -267,10 +322,15 @@ main {
     width: 70%;
 }
 
+.Main__AreaDeResultados__imagenError{
+    width: 70%;
+    display:none;
+}
+
 .Main__AreaDeResultados__Titulo{
     font-family: var(--fuente-Inter);
     font-size: 2rem;
-    color: var(--color-cuatro);
+    color: var(--color-recuadro);
     text-align: center;
     margin: 0 4%;
 }
@@ -327,6 +387,11 @@ main {
 /*###############################################################################*/
 
 /*Configuraciones generales*/
+
+strong{
+    color: var(--color-boton1);
+}
+
 
 textarea:focus {
     border-color: var(--color-recuadro);
