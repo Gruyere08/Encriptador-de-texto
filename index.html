@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html tema="oscuro" lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
 
     </header>
     <main>
-        <img class="Main__Logo" src="/assets/Alura.svg" alt="Logo de Alura">
+        <img id="Alura" class="Main__Logo" src="/assets/Alura.svg" alt="Logo de Alura">
         <section class="Main__AreaDeTrabajo">
             <h1 class="Main__AreaDeTrabajo_titulo">Encriptador de texto GruCipher</h1>
             <div class="Main__AreaDeTrabajo__Seccion">
@@ -38,7 +38,7 @@
             <img id="imagenInicial" class="Main__AreaDeResultados__imagenInicial" src="/assets/alone.png" alt="Imagen de alguien aburrido">
             <h2 id="tituloResultado" class="Main__AreaDeResultados__Titulo">Todavía no has escrito nada</h2>
             <p id="parrafoResultado" class="Main__AreaDeResultados__parrafo">Ingresa el texto que desees encriptar o desencriptar</p>
-            <button id="copiar" type="button" class="Main__AreaDeResultados__Boton oculto">Copiar</button>
+            <button onclick="cambiarTema()" id="copiar" type="button" class="Main__AreaDeResultados__Boton oculto">Copiar</button>
         </section>
     </main>
     <footer hidden>

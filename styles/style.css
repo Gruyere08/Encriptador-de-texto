@@ -3,29 +3,59 @@
 
 
 :root {
+    
     --color-uno: #101318;
     --color-dos: #161a20;
     --color-tres: #474b63;
     --color-cuatro: #788581;
     --color-blanco: #FFF0F5;
-
+    
     --color-boton1: #4C3BCF;
     --color-boton2: #50B498;
 
     --color-click1: #6d60cf;
     --color-click2: #7ac2ad;
-
+    
     --color-recuadro: #4e7eb1;
-
-    --color-Luz1: #4c3bcf93;
-    --color-Luz2: #50b49896;
-
-    --color-luz-Interior1: #4c3bcf3f;
-    --color-luz-Interior2: #50b49846;
-
+    
+    --color-Luz1: rgba(76, 59, 207, 0.6);
+    --color-Luz2: rgba(80, 180, 152, 0.6);
+    
+    --color-luz-Interior1: rgba(76, 59, 207, 0.25);
+    --color-luz-Interior2: rgba(80, 180, 152, 0.25);
+    
     --fuente-Inter: "Inter", sans-serif;
-
+    
     --transicion-botones: 0.3s;
+
+    --alura: "/assets/Alura_claro.svg";
+
+}
+
+[tema="claro"] {
+    
+
+    --color-uno: #e6dbdb; 
+    --color-dos: #b1b1b1; 
+    --color-tres: #bbbbbb; 
+    --color-cuatro: #4e4e4e; 
+    --color-blanco: #1A202C; 
+    
+    
+    --color-boton1: #cf3b3b; 
+    --color-boton2: #ffb834; 
+    
+    --color-click1: #cf5959; 
+    --color-click2: #ffca69;
+    
+    --color-recuadro: #f19236;
+    
+    --color-Luz1: rgba(207, 59, 59, 0.6);
+    --color-Luz2: rgba(255, 184, 0.6);
+    
+    --color-luz-Interior1: rgba(207, 59, 59, 0.25);
+    --color-luz-Interior2: rgba(255, 184, 52, 0.25);
+    
 }
 
 
@@ -57,6 +87,7 @@ main {
     width: 100vw;
     padding: 40px 2.8%;
     background-color: var(--color-uno);
+    transition: background-color 1s;
 }
 
 .Main__Logo {

@@ -4,6 +4,13 @@ const li = 'imes';
 const o = 'ober';
 const u = 'ufat';
 
+const temaGuardado = localStorage.getItem('tema') || 'oscuro';
+document.documentElement.setAttribute('tema', temaGuardado);
+
+
+
+
+
 function encriptarTexto(texto) {
 
     if (ilegal(texto)) {
@@ -97,4 +104,22 @@ function ilegal(str) {
 function limpiar() {
     document.getElementById('campoEntrada').value = "";
     return;
+}
+
+
+function cambiarTema() {
+    const temaActual = document.documentElement.getAttribute('tema');
+    const temaNuevo = temaActual === 'oscuro' ? 'claro' : 'oscuro';
+    document.documentElement.setAttribute('tema', temaNuevo);
+    localStorage.setItem('tema', temaNuevo);
+}
+
+
+function actualizarIconos(){
+
+}
+
+
+function oscuro(){
+    return document.documentElement.getAttribute('tema') === "oscuro";
 }
