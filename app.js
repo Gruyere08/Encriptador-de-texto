@@ -6,10 +6,8 @@ const u = 'ufat';
 
 const temaGuardado = localStorage.getItem('tema') || 'oscuro';
 document.documentElement.setAttribute('tema', temaGuardado);
-
-
-
-
+let iconos = ["Alura", "warning", "imagenError", "imagenInicial"];
+actualizarIconos();
 
 function encriptarTexto(texto) {
 
@@ -110,18 +108,28 @@ function limpiar() {
 function cambiarTema() {
     const temaActual = document.documentElement.getAttribute('tema');
     const temaNuevo = temaActual === 'oscuro' ? 'claro' : 'oscuro';
-    if (temaNuevo === "oscuro") {
-        oscurecer(document.getElementById("Alura"))
-    }else{
-        enclarecer(document.getElementById("Alura"))
-    }
     document.documentElement.setAttribute('tema', temaNuevo);
+    actualizarIconos();
     localStorage.setItem('tema', temaNuevo);
+    return;
 }
 
 
 function actualizarIconos(){
-
+    if (oscuro()) {
+        for (let icono of iconos) {
+            console.log(icono)
+            oscurecer(document.getElementById(icono));
+        }
+        console.log("entre al oscurecer")
+    } else {
+        for (let icono of iconos) {
+            enclarecer(document.getElementById(icono));
+        }
+        console.log("entre al enclarecer")
+    }
+    
+    return 0;
 }
 
 
@@ -131,14 +139,13 @@ function oscuro(){
 
 
 function enclarecer(elemento) {
-    if (elemento.src) {
-        elemento.src = elemento.src.replace(/(\.[^/.]+)$/, '_claro$1');
-    }
+    elemento.src = elemento.src.replace(/(\.[^/.]+)$/, '_claro$1');
+    return;
 }
 
 
 function oscurecer(elemento) {
-    if (elemento.src) {
-        elemento.src = elemento.src.replace(/_claro(\.[^/.]+)$/, '$1');
-    }
+    elemento.src = elemento.src.replace(/_claro(\.[^/.]+)$/, '$1');
+    return;
 }
+

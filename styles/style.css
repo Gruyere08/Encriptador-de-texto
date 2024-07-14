@@ -10,8 +10,8 @@
     --color-cuatro: #788581;
     --color-blanco: #FFF0F5;
     
-    --color-boton1: #4C3BCF;
-    --color-boton2: #50B498;
+    --color-boton1: #4b3acf;
+    --color-boton2: #50b498;
 
     --color-click1: #6d60cf;
     --color-click2: #7ac2ad;
@@ -36,8 +36,8 @@
     
 
     --color-uno: #e6dbdb; 
-    --color-dos: #b1b1b1; 
-    --color-tres: #bbbbbb; 
+    --color-dos: #c0c0c0; 
+    --color-tres: #dddddd; 
     --color-cuatro: #4e4e4e; 
     --color-blanco: #1A202C; 
     
@@ -45,13 +45,13 @@
     --color-boton1: #cf3b3b; 
     --color-boton2: #ffb834; 
     
-    --color-click1: #cf5959; 
-    --color-click2: #ffca69;
+    --color-click1: #ce6f6f; 
+    --color-click2: #ffd78d;
     
     --color-recuadro: #f19236;
     
-    --color-Luz1: rgba(207, 59, 59, 0.6);
-    --color-Luz2: rgba(255, 184, 0.6);
+    --color-Luz1: rgba(204, 92, 92, 0.6);
+    --color-Luz2: rgb(255, 201, 63);
     
     --color-luz-Interior1: rgba(207, 59, 59, 0.25);
     --color-luz-Interior2: rgba(255, 184, 52, 0.25);
@@ -90,11 +90,24 @@ main {
     transition: background-color 1s;
 }
 
-.Main__Logo {
-    user-select: none;
+.menu{
     margin-left: 5%;
-    width: 48px;
-    height: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu__tema{
+    width: 4rem;
+    height: 4rem;
+}
+
+
+.menu__Main__Logo {
+    user-select: none;
+    width: 3rem;
+    height: 3rem;
 }
 
 
