@@ -110,6 +110,11 @@ function limpiar() {
 function cambiarTema() {
     const temaActual = document.documentElement.getAttribute('tema');
     const temaNuevo = temaActual === 'oscuro' ? 'claro' : 'oscuro';
+    if (temaNuevo === "oscuro") {
+        oscurecer(document.getElementById("Alura"))
+    }else{
+        enclarecer(document.getElementById("Alura"))
+    }
     document.documentElement.setAttribute('tema', temaNuevo);
     localStorage.setItem('tema', temaNuevo);
 }
@@ -122,4 +127,18 @@ function actualizarIconos(){
 
 function oscuro(){
     return document.documentElement.getAttribute('tema') === "oscuro";
+}
+
+
+function enclarecer(elemento) {
+    if (elemento.src) {
+        elemento.src = elemento.src.replace(/(\.[^/.]+)$/, '_claro$1');
+    }
+}
+
+
+function oscurecer(elemento) {
+    if (elemento.src) {
+        elemento.src = elemento.src.replace(/_claro(\.[^/.]+)$/, '$1');
+    }
 }
