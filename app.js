@@ -6,8 +6,10 @@ const u = 'ufat';
 
 const temaGuardado = localStorage.getItem('tema') || 'oscuro';
 document.documentElement.setAttribute('tema', temaGuardado);
-let iconos = ["Alura", "warning", "imagenError", "imagenInicial"];
+let iconos = ["Alura", "warning", "imagenError", "imagenInicial", "icono_tema"];
+let bloques = ["bloque_principal", "bloque_secundario", "bloque_botones"]
 actualizarIconos();
+transicionBloques();
 
 function encriptarTexto(texto) {
 
@@ -106,10 +108,15 @@ function limpiar() {
 
 
 function cambiarTema() {
+    
+    transicionBloques();
     const temaActual = document.documentElement.getAttribute('tema');
     const temaNuevo = temaActual === 'oscuro' ? 'claro' : 'oscuro';
-    document.documentElement.setAttribute('tema', temaNuevo);
-    actualizarIconos();
+    setTimeout(() => {
+        document.documentElement.setAttribute('tema', temaNuevo);
+        actualizarIconos();
+        transicionBloques();
+    }, 1100); 
     localStorage.setItem('tema', temaNuevo);
     return;
 }
@@ -118,15 +125,12 @@ function cambiarTema() {
 function actualizarIconos(){
     if (oscuro()) {
         for (let icono of iconos) {
-            console.log(icono)
             oscurecer(document.getElementById(icono));
         }
-        console.log("entre al oscurecer")
     } else {
         for (let icono of iconos) {
             enclarecer(document.getElementById(icono));
         }
-        console.log("entre al enclarecer")
     }
     
     return 0;
@@ -147,5 +151,13 @@ function enclarecer(elemento) {
 function oscurecer(elemento) {
     elemento.src = elemento.src.replace(/_claro(\.[^/.]+)$/, '$1');
     return;
+}
+
+
+function transicionBloques(){
+    console.log("entre al transition");
+    for (const elemento of bloques) {
+        document.getElementById(elemento).classList.toggle("oculto");
+    }
 }
 

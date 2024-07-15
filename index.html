@@ -15,33 +15,36 @@
     <main>
         <nav class="menu">
             <img id="Alura" class="menu__Main__Logo" src="/assets/Alura.svg" alt="Logo de Alura">
-            <img id="tema" class="menu__tema" src="/assets/tema.png" alt="Logo de Alura">
+            <button onclick="cambiarTema()" class="menu__boton">
+                <img id="icono_tema" class="menu__tema" src="/assets/tema.png" alt="Logo de cambio de tema">
+            </button>
+            
         </nav>
         <section class="Main__AreaDeTrabajo">
             <h1 class="Main__AreaDeTrabajo_titulo">Encriptador de texto GruCipher</h1>
-            <div class="Main__AreaDeTrabajo__Seccion">
+            <div id="bloque_principal" class="Main__AreaDeTrabajo__Seccion oculto">
                 <textarea id="campoEntrada" class="Main__AreaDeTrabajo__Seccion__Campo"
                     placeholder="Ingrese el texto aqui"></textarea>
                 <div class="Main__AreaDeTrabajo__Seccion__Abajo">
                     <p class="Main__AreaDeTrabajo__Seccion__Abajo__advertencia">
                         <img id="warning" class="Main__AreaDeTrabajo__Seccion__Abajo__advertencia_icono" src="/assets/warning.png" alt="Alerta">
                         Solo letras minusculas y sin tildes.</p>
-                        <button onclick="limpiar(); cambiarTema()" type="button" class="Main__AreaDeTrabajo__Seccion__Abajo__Limpiar">Limpiar</button>
+                        <button onclick="limpiar(); transicionBloques();" type="button" class="Main__AreaDeTrabajo__Seccion__Abajo__Limpiar">Limpiar</button>
                 </div>
             </div>
-            <div class="Main__AreaDeTrabajo__Botones">
+            <div id="bloque_botones" class="Main__AreaDeTrabajo__Botones oculto">
                 <button type="button" class="Main__AreaDeTrabajo__Botones__principal"
                     onclick="encriptar()">Encriptar</button>
                 <button type="button" class="Main__AreaDeTrabajo__Botones__secundario">Desencriptar</button>
             </div>
         </section>
-        <section class="Main__AreaDeResultados">
+        <section id="bloque_secundario" class="Main__AreaDeResultados oculto">
             <textarea readonly id="campoSalida" class="Main__AreaDeResultados__campo oculto"></textarea>
             <img id="imagenError" class="Main__AreaDeResultados__imagenError" src="/assets/angry.png" alt="Imagen de alguien triste">
             <img id="imagenInicial" class="Main__AreaDeResultados__imagenInicial" src="/assets/sleep.png" alt="Imagen de alguien aburrido">
             <h2 id="tituloResultado" class="Main__AreaDeResultados__Titulo">Todavía no has escrito nada</h2>
             <p id="parrafoResultado" class="Main__AreaDeResultados__parrafo">Ingresa el texto que desees encriptar o desencriptar</p>
-            <button onclick="cambiarTema()" id="copiar" type="button" class="Main__AreaDeResultados__Boton oculto">Copiar</button>
+            <button onclick="" id="copiar" type="button" class="Main__AreaDeResultados__Boton oculto">Copiar</button>
         </section>
     </main>
     <footer hidden>
