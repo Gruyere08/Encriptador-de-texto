@@ -89,7 +89,6 @@ main {
     width: 100vw;
     padding: 40px 2.8%;
     background-color: var(--color-uno);
-    transition: background-color 1s;
 }
 
 .menu{
@@ -447,7 +446,7 @@ main {
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1.5rem;
-    transition: border-color 0.3s , background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
+    transition: opacity 4s , border-color 0.3s , background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
     display: none;
 }
 
@@ -476,6 +475,7 @@ main {
     background-clip: text;
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent;
+    transition: opacity 0.3s;
 }
 
 .Main__AreaDeResultados__parrafo{
@@ -484,6 +484,7 @@ main {
     font-size: 1rem;
     text-align: center;
     color: var(--color-cuatro);
+    transition: opacity 0.3s;
 }
 
 .Main__AreaDeResultados__Boton {
@@ -502,7 +503,7 @@ main {
     align-items: center;
     z-index: auto;
     visibility: hidden;
-    transition: filter 0.1s ease-in-out, background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
+    transition: opacity 0.3s, filter 0.1s ease-in-out, background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
 }
 
 .Main__AreaDeResultados__Boton::after {
@@ -534,7 +535,7 @@ main {
 /*Configuraciones generales*/
 
 strong{
-    color: var(--color-boton1);
+    color: var(--color-recuadro);
 }
 
 
@@ -621,19 +622,50 @@ footer{
 /*Animaciones*/
 
 
+.exitoso{
+    filter: contrast(75%);
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.exitoso:active{
+    filter: contrast(75%) brightness(100%);
+   
+}
+
 .oculto{
     opacity: 0;
 }
 
+.oculto_rapido{
+    animation: cambiar_contenido 0.8s ease-in-out forwards
+}
+
 
 .fuera_de_pantalla{
-    transform: translateX(-10vw);
+    transform: translateX(-20vw);
 }
+
+
+
+@keyframes cambiar_contenido {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+
 
 
 @keyframes aparecer_por_izquierda {
     0% {
-        transform: translateX(-10vw);
+        transform: translateX(-20vw);
     }
     80% {
         transform: translateX(1vw);
@@ -653,7 +685,7 @@ footer{
         transform: translateX(1vw);
     }
     100% {
-        transform: translateX(-10vw);
+        transform: translateX(-20vw);
     }
 }
 
