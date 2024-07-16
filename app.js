@@ -1,10 +1,5 @@
-//ambiente
 
-const a = 'ai';
-const e = 'enter';
-const li = 'imes';
-const o = 'ober';
-const u = 'ufat';
+
 
 const cartel = ['imagenError', 'imagenInicial', 'parrafoResultado', 'tituloResultado']
 const iconos = ["Alura", "warning", "imagenError", "imagenInicial", "icono_tema", "icono_home", "icono_info"];
@@ -26,8 +21,16 @@ document.documentElement.setAttribute('tema', temaGuardado);
 
 //funcion de encriptar
 document.getElementById("encriptar").addEventListener("click", function() {
-    let texto = document.getElementById("campoEntrada").value
+    let texto = document.getElementById("campoEntrada").value;
     document.getElementById("campoSalida").value = encriptarTexto(texto) || "";
+    return;
+})
+
+
+//funcion de desencriptar
+document.getElementById("desencriptar").addEventListener("click", function() {
+    let texto = document.getElementById("campoEntrada").value;
+    document.getElementById("campoSalida").value = desencriptarTexto(texto) || "";
     return;
 })
 
@@ -64,7 +67,7 @@ document.getElementById('copiar').addEventListener('click', function() {
     this.disabled = true;
     const campo = document.getElementById('campoSalida');
     const textoCopiar = campo.value;
-
+    
     if (navigator.clipboard) {
         navigator.clipboard.writeText(textoCopiar).then(() => {
             console.log('Texto copiado al portapapeles');
@@ -75,7 +78,7 @@ document.getElementById('copiar').addEventListener('click', function() {
         // Fallback for older browsers
         campo.select();
         campo.setSelectionRange(0, 99999); // For mobile devices
-
+        
         try {
             const exitoso = document.execCommand('copy');
             const mensaje = exitoso ? 'Texto copiado al portapapeles' : 'Error al copiar el texto';
@@ -83,10 +86,10 @@ document.getElementById('copiar').addEventListener('click', function() {
         } catch (err) {
             console.error('Error al intentar copiar el texto: ', err);
         }
-
+        
         window.getSelection().removeAllRanges();
     }
-   
+    
     this.textContent = "¡COPIADO!";
     this.classList.add("exitoso");
     setTimeout(() => {
@@ -101,19 +104,19 @@ document.getElementById('copiar').addEventListener('click', function() {
 document.addEventListener('DOMContentLoaded', (event) => {
     const delayedLinks = document.querySelectorAll('.delayed-link');
     const allLinks = document.querySelectorAll('a'); // Seleccionar todos los enlaces
-
+    
     delayedLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const href = this.getAttribute('href');
-
+            
             // Desactivar todos los enlaces
             allLinks.forEach(l => l.classList.add('disabled'));
-
+            
             // Añadir la clase de transición
             desaparecerBloques();
             esconderIconos();
-
+            
             setTimeout(() => {
                 window.location.href = href;
             }, 1200);
@@ -126,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
     actualizarIconos();
     aparecerBloques();
     aparecerIconos();
-   
+    
 });
 
 
@@ -142,7 +145,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function rechazar() {
     const bloque = document.getElementById("bloque_secundario");
-    bloque.classList.toggle("oculto_rapido");
+    bloque.style.animationDelay = "0s";
+    bloque.classList.remove("oculto");
+    bloque.classList.remove("aparecer");
+    bloque.classList.add("desaparecer");
     
     setTimeout(() => {
         
@@ -157,9 +163,13 @@ function rechazar() {
         parrafo.innerHTML = "No se permiten <strong>mayusculas</strong> ni <strong>tildes</strong>."
         titulo.textContent = "Algo anduvo mal."
         
+        bloque.classList.remove("desaparecer");
+        bloque.classList.add("aparecer");
+        bloque.classList.add("oculto");
+        
         setTimeout(() => {
-            bloque.classList.toggle("oculto_rapido");
-        }, 400);
+            bloque.style.animationDelay = "0.6s";
+        }, 1000);
         
     }, 400);
     
@@ -169,7 +179,10 @@ function rechazar() {
 
 function ocultarCartel() {
     const bloque = document.getElementById("bloque_secundario");
-    bloque.classList.toggle("oculto_rapido");
+    bloque.style.animationDelay = "0s";
+    bloque.classList.remove("oculto");
+    bloque.classList.remove("aparecer");
+    bloque.classList.add("desaparecer");
     
     setTimeout(() => {
         document.getElementById('imagenError').style.display = "none";
@@ -178,10 +191,13 @@ function ocultarCartel() {
         document.getElementById('tituloResultado').style.display = "none";
         mostrarResultado();
         
+        bloque.classList.remove("desaparecer");
+        bloque.classList.add("aparecer");
+        bloque.classList.add("oculto");
         setTimeout(() => {
-            bloque.classList.toggle("oculto_rapido");
-        }, 400);
-    }, 400);
+            bloque.style.animationDelay = "0.6s";
+        }, 1000);
+    }, 500);
     
     
     return;
@@ -283,18 +299,26 @@ function ilegal(str) {
 }
 
 
-function encriptarTexto(texto) {
 
+
+const a = 'ai';
+const e = 'enter';
+const li = 'imes';
+const o = 'ober';
+const u = 'ufat';
+
+function encriptarTexto(texto) {
+    
     if (ilegal(texto)) {
         rechazar();
         return
     }
-
+    
     if (texto !== "" && document.getElementById("parrafoResultado").style.display !== "none") {
         ocultarCartel();
     }
-
-
+    
+    
     let resultado = "";
 
     for (let i = 0; i < texto.length; i++) {
@@ -318,6 +342,45 @@ function encriptarTexto(texto) {
                 break;
             default:
                 resultado += char;
+        }
+    }
+
+    return resultado;
+}
+
+
+
+function desencriptarTexto(texto) {
+    let resultado = "";
+
+    if (ilegal(texto)) {
+        rechazar();
+        return
+    }
+    
+    if (texto !== "" && document.getElementById("parrafoResultado").style.display !== "none") {
+        ocultarCartel();
+    }
+
+    for (let i = 0; i < texto.length; ) {
+        if (texto.startsWith(a, i)) {
+            resultado += 'a';
+            i += a.length;
+        } else if (texto.startsWith(e, i)) {
+            resultado += 'e';
+            i += e.length;
+        } else if (texto.startsWith(li, i)) {
+            resultado += 'i';
+            i += li.length;
+        } else if (texto.startsWith(o, i)) {
+            resultado += 'o';
+            i += o.length;
+        } else if (texto.startsWith(u, i)) {
+            resultado += 'u';
+            i += u.length;
+        } else {
+            resultado += texto[i];
+            i++;
         }
     }
 
