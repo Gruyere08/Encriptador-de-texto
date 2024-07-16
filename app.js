@@ -42,7 +42,7 @@ document.getElementById("limpiar").addEventListener("click", function() {
 //Funcion de cambio de tema
 boton_tema.addEventListener("click", function () {
     boton_tema.disabled = true;
-    transicionBloques();
+    desaparecerBloques();
     esconderIconos();
     const temaActual = document.documentElement.getAttribute('tema');
     const temaNuevo = temaActual === 'oscuro' ? 'claro' : 'oscuro';
@@ -50,7 +50,7 @@ boton_tema.addEventListener("click", function () {
     setTimeout(() => {
         document.documentElement.setAttribute('tema', temaNuevo);
         actualizarIconos();
-        transicionBloques();
+        aparecerBloques();
         aparecerIconos();
         boton_tema.disabled = false;
     }, 1100);
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             allLinks.forEach(l => l.classList.add('disabled'));
 
             // Añadir la clase de transición
-            transicionBloques();
+            desaparecerBloques();
             esconderIconos();
 
             setTimeout(() => {
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 document.addEventListener("DOMContentLoaded", function() {
     actualizarIconos();
-    transicionBloques();
+    aparecerBloques();
     aparecerIconos();
    
 });
@@ -136,23 +136,6 @@ document.addEventListener("DOMContentLoaded", function() {
 //Funciones visuales
 
 
-function esconderIconos() {
-    let botones = document.querySelectorAll(".menu__boton");
-    for (const elemento of botones) {
-        elemento.classList.remove("fuera_de_pantalla");
-        elemento.classList.remove("aparecer_por_izquierda");
-        elemento.classList.add("salir_por_izquierda");
-    }
-}
-
-function aparecerIconos() {
-    let botones = document.querySelectorAll(".menu__boton");
-    for (const elemento of botones) {
-        elemento.classList.add("fuera_de_pantalla");
-        elemento.classList.remove("salir_por_izquierda");
-        elemento.classList.add("aparecer_por_izquierda");
-    }
-}
 
 
 
@@ -160,9 +143,9 @@ function aparecerIconos() {
 function rechazar() {
     const bloque = document.getElementById("bloque_secundario");
     bloque.classList.toggle("oculto_rapido");
-
+    
     setTimeout(() => {
-
+        
         let parrafo = document.getElementById('parrafoResultado');
         let titulo = document.getElementById('tituloResultado');
         document.getElementById('imagenInicial').style.display = "none";
@@ -173,34 +156,34 @@ function rechazar() {
         titulo.style.display = "block";
         parrafo.innerHTML = "No se permiten <strong>mayusculas</strong> ni <strong>tildes</strong>."
         titulo.textContent = "Algo anduvo mal."
-
+        
         setTimeout(() => {
             bloque.classList.toggle("oculto_rapido");
         }, 400);
-
+        
     }, 400);
-
-
+    
+    
 }
 
 
 function ocultarCartel() {
     const bloque = document.getElementById("bloque_secundario");
     bloque.classList.toggle("oculto_rapido");
-
+    
     setTimeout(() => {
         document.getElementById('imagenError').style.display = "none";
         document.getElementById('imagenInicial').style.display = "none";
         document.getElementById('parrafoResultado').style.display = "none";
         document.getElementById('tituloResultado').style.display = "none";
         mostrarResultado();
-
+        
         setTimeout(() => {
             bloque.classList.toggle("oculto_rapido");
         }, 400);
     }, 400);
-
-
+    
+    
     return;
 }
 
@@ -227,7 +210,7 @@ function actualizarIconos() {
             boton_tema.setAttribute("texto-cartel", "Tema oscuro")
         }
     }
-
+    
     return 0;
 }
 
@@ -246,12 +229,41 @@ function oscurecer(elemento) {
 }
 
 
-function transicionBloques() {
+function aparecerBloques() {
     for (const elemento of bloques) {
-        document.getElementById(elemento).classList.toggle("oculto");
+        document.getElementById(elemento).classList.add("oculto");
+        document.getElementById(elemento).classList.remove("desaparecer");
+        document.getElementById(elemento).classList.add("aparecer");
     }
 }
 
+
+function desaparecerBloques() {
+    for (const elemento of bloques) {
+        document.getElementById(elemento).classList.remove("oculto");
+        document.getElementById(elemento).classList.remove("aparecer");
+        document.getElementById(elemento).classList.add("desaparecer");
+    }
+}
+
+
+function esconderIconos() {
+    let botones = document.querySelectorAll(".menu__boton");
+    for (const elemento of botones) {
+        elemento.classList.remove("fuera_de_pantalla");
+        elemento.classList.remove("aparecer_por_izquierda");
+        elemento.classList.add("salir_por_izquierda");
+    }
+}
+
+function aparecerIconos() {
+    let botones = document.querySelectorAll(".menu__boton");
+    for (const elemento of botones) {
+        elemento.classList.add("fuera_de_pantalla");
+        elemento.classList.remove("salir_por_izquierda");
+        elemento.classList.add("aparecer_por_izquierda");
+    }
+}
 
 //###############################################################################
 //Funciones de procesamiento y otras funciones
