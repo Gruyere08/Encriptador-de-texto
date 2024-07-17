@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 
+@property --angulo-gradiente {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
 
 :root {
     
@@ -220,13 +227,67 @@ main {
 
 }
 
-.Main__AreaDeTrabajo__Seccion__Campo {
-    height: 28.125vh;
-    width: 80%;
-    resize: none;
+
+#contenedor_entrada{
+    height: 30vh;
+    width: 85%;
+    position:relative;
     border-radius: 32px;
-    border-color: var(--color-dos);
-    border-width: 2px;
+}
+
+#contenedor_entrada::before, 
+#contenedor_entrada::after{
+    border-radius: inherit;
+    opacity: 0;
+    
+    content: "";
+    background-image: conic-gradient(from var(--angulo-gradiente) ,var(--color-boton2), var(--color-boton1),var(--color-boton2) );
+    transition: opacity 0.3s;
+    pointer-events: none;
+    animation: rotacion_color 5s linear infinite;
+    position:absolute;
+} 
+
+#contenedor_entrada::before{
+    filter: blur(2rem);
+    inset: -0.5rem;
+    
+}
+
+
+#contenedor_entrada::after{
+    inset: -0.2rem;
+}
+
+#contenedor_entrada:hover::before{
+    opacity: 0.5;
+}
+
+
+#contenedor_entrada:focus-within::before, 
+#contenedor_entrada:focus-within::after {
+    opacity: 1;
+} 
+
+#contenedor_entrada:hover .luz-interior{
+    opacity: 0.10;
+}
+
+
+#contenedor_entrada:focus-within .luz-interior{
+    opacity:0.20;
+}
+
+
+
+.Main__AreaDeTrabajo__Seccion__Campo {
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 32px;
+    border: none;
     padding: 16px;
     background-image: linear-gradient(145deg, var(--color-dos), var(--color-dos), var(--color-uno));
     font-family: var(--fuente-Inter);
@@ -276,28 +337,34 @@ main {
     background-color: var(--color-dos);
 
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: auto;
 }
 
 
-.Main__AreaDeTrabajo__Seccion__Abajo__Limpiar::after {
+.Main__AreaDeTrabajo__Seccion__Abajo__Limpiar::after,
+.Main__AreaDeTrabajo__Seccion__Abajo__Limpiar::before{
     content: "";
     position: absolute;
-    border-radius: 1000px;
-    width: 105%;
-    height: 110%;
+    border-radius: inherit;
+    inset: -0.2rem;
     background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
     z-index: -1;
 }
 
+.Main__AreaDeTrabajo__Seccion__Abajo__Limpiar::before{
+    opacity: 0;
+    transition: opacity var(--transicion-botones);
+    filter: blur(1rem);
+}
+
+.Main__AreaDeTrabajo__Seccion__Abajo__Limpiar:hover::before{
+    opacity: 1;
+}
 
 
 .Main__AreaDeTrabajo__Seccion__Abajo__Limpiar:hover {
     background-color: transparent;
-    box-shadow: 40px 0 100px -3px var(--color-Luz1), -40px 0 100px -3px var(--color-Luz2);
+    /*box-shadow: 40px 0 100px -3px var(--color-Luz1), -40px 0 100px -3px var(--color-Luz2);*/
     z-index: auto;
 }
 
@@ -332,21 +399,17 @@ main {
     transition: filter 0.1s ease-in-out, background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
     border: none;
     background-color: var(--color-dos);
-
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     z-index: auto;
 }
 
 .Main__AreaDeTrabajo__Botones__principal::after {
     content: "";
     position: absolute;
-    border-radius: 1000px;
-    width: 103%;
-    height: 108%;
-    background: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    border-radius: inherit;
+    inset: -0.2rem;
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
     z-index: -1;
 }
 
@@ -374,20 +437,15 @@ main {
     border: none;
     transition: filter 0.1s ease-in-out, background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
     background-color: var(--color-dos);
-
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: auto;
 }
 
 .Main__AreaDeTrabajo__Botones__secundario::after {
     content: "";
     position: absolute;
-    border-radius: 1000px;
-    width: 103%;
-    height: 108%;
+    border-radius: inherit;
+    inset: -0.2rem;
     background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
     z-index: -1;
 }
@@ -423,6 +481,7 @@ main {
     height: 90vh;
     z-index: 0;
     position: relative;
+    transition: opacity 0.2s;
 }
 
 .Main__AreaDeResultados__campo {
@@ -532,18 +591,33 @@ strong{
 }
 
 
+.luz-interior{
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    z-index: 3;
+    background-image: conic-gradient(from var(--angulo-gradiente) ,var(--color-boton2), var(--color-boton1),var(--color-boton2) );
+    transition: opacity 0.3s;
+    pointer-events: none;
+    animation: rotacion_color 5s linear infinite;
+    filter: blur(2rem);
+    border-radius: 32px;
+    
+}
+
 textarea:hover{
-    border-color: var(--color-tres);
-    box-shadow: inset -40px 0 100px -40px var(--color-luz-Interior1), inset 40px 0 100px -40px var(--color-luz-Interior2), 40px 0 100px -40px var(--color-Luz1), -40px 0 100px -40px var(--color-Luz2);
+    border: none;
+    /*box-shadow: inset -40px 0 100px -40px var(--color-luz-Interior1), inset 40px 0 100px -40px var(--color-luz-Interior2);*/
 }
 
 textarea:focus {
-    border-color: var(--color-recuadro);
+    border: none;
     outline: none;
-    border-width: 2px;
-    box-shadow: inset -40px 0 100px var(--color-luz-Interior1), inset 40px 0 100px var(--color-luz-Interior2), 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
+    /*box-shadow: inset -40px 0 100px var(--color-luz-Interior1), inset 40px 0 100px var(--color-luz-Interior2);*/
 
 }
+
+
 
 textarea::placeholder {
     color: var(--color-cuatro);
@@ -668,6 +742,15 @@ footer{
     animation: desaparecer 0.5s ease-in-out forwards;
 }
 
+.aparecer_rapido{
+    animation: aparecer 0.2s forwards;
+}
+
+.desaparecer_rapido{
+    animation: desaparecer 0.2s forwards;
+}
+
+
 
 #titulo{
     animation-delay: 0s;
@@ -684,6 +767,16 @@ footer{
 #bloque_secundario{
     animation-delay: 0.6s;
 }
+
+
+@keyframes rotacion_color {
+    0% {
+      --angulo-gradiente: 0deg;
+    }
+    100% {
+      --angulo-gradiente: 360deg;
+    }
+  }
 
 
 

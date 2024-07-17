@@ -147,8 +147,8 @@ function rechazar() {
     const bloque = document.getElementById("bloque_secundario");
     bloque.style.animationDelay = "0s";
     bloque.classList.remove("oculto");
-    bloque.classList.remove("aparecer");
-    bloque.classList.add("desaparecer");
+    bloque.classList.remove("aparecer_rapido");
+    bloque.classList.add("desaparecer_rapido");
     
     setTimeout(() => {
         
@@ -163,15 +163,17 @@ function rechazar() {
         parrafo.innerHTML = "No se permiten <strong>mayusculas</strong> ni <strong>tildes</strong>."
         titulo.textContent = "Algo anduvo mal."
         
-        bloque.classList.remove("desaparecer");
-        bloque.classList.add("aparecer");
+        
+        bloque.classList.remove("desaparecer_rapido");
+        bloque.classList.add("aparecer_rapido");
         bloque.classList.add("oculto");
         
         setTimeout(() => {
+            bloque.classList.remove("aparecer_rapido");
             bloque.style.animationDelay = "0.6s";
         }, 1000);
         
-    }, 400);
+    }, 300);
     
     
 }
@@ -181,8 +183,8 @@ function ocultarCartel() {
     const bloque = document.getElementById("bloque_secundario");
     bloque.style.animationDelay = "0s";
     bloque.classList.remove("oculto");
-    bloque.classList.remove("aparecer");
-    bloque.classList.add("desaparecer");
+    bloque.classList.remove("aparecer_rapido");
+    bloque.classList.add("desaparecer_rapido");
     
     setTimeout(() => {
         document.getElementById('imagenError').style.display = "none";
@@ -191,13 +193,14 @@ function ocultarCartel() {
         document.getElementById('tituloResultado').style.display = "none";
         mostrarResultado();
         
-        bloque.classList.remove("desaparecer");
-        bloque.classList.add("aparecer");
+        bloque.classList.remove("desaparecer_rapido");
+        bloque.classList.add("aparecer_rapido");
         bloque.classList.add("oculto");
         setTimeout(() => {
+            bloque.classList.remove("aparecer_rapido");
             bloque.style.animationDelay = "0.6s";
         }, 1000);
-    }, 500);
+    }, 300);
     
     
     return;
