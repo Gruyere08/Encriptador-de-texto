@@ -156,7 +156,7 @@ function rechazar() {
         let titulo = document.getElementById('tituloResultado');
         document.getElementById('imagenInicial').style.display = "none";
         document.getElementById('copiar').style.visibility = "hidden";
-        document.getElementById('campoSalida').style.display = "none";
+        document.getElementById('contenedor_salida').style.display = "none";
         document.getElementById('imagenError').style.display = "inline";
         parrafo.style.display = "block";
         titulo.style.display = "block";
@@ -209,7 +209,7 @@ function ocultarCartel() {
 
 function mostrarResultado() {
     document.getElementById('copiar').style.visibility = "visible";
-    document.getElementById('campoSalida').style.display = "block";
+    document.getElementById('contenedor_salida').style.display = "block";
     return;
 }
 

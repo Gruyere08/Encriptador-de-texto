@@ -111,9 +111,7 @@ main {
     border:none;
     outline:none;
     background-color: transparent;
-    border-radius: 100%;
 }
-
 
 #boton_alura{
     animation-delay: 0s;
@@ -140,16 +138,18 @@ main {
     height: 3rem;
     background-color: transparent;
     transition: transform 0.1s, filter 0.5s;
+    cursor: pointer;
+    
 }
 
 .menu__icono:hover {
-    filter: brightness(150%) drop-shadow(40px 0 100px var(--color-Luz1)) drop-shadow(-40px 0 100px var(--color-Luz2));
+    filter: brightness(150%);
     transform: scale(1.2);
 }
 
 
-.menu__icono:active {
-    filter: brightness(150%) drop-shadow(40px 0 100px var(--color-Luz1)) drop-shadow(-40px 0 100px var(--color-Luz2));
+.menu__icono:active{
+    filter: brightness(150%);
     transform: scale(1);
 }
 
@@ -174,6 +174,25 @@ main {
     opacity: 0;
     transition: opacity 0.3s;
     z-index: 1000;
+    pointer-events: none;
+}
+
+
+.cartel::before {
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
+    opacity: 1;
+    inset: -1rem;
+    transition: opacity 0.3s;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(2rem);
+    pointer-events: none;
+}
+
+.cartel:hover::before {
+    opacity: 1;
 }
 
 .cartel:hover::after {
@@ -364,7 +383,6 @@ main {
 
 .Main__AreaDeTrabajo__Seccion__Abajo__Limpiar:hover {
     background-color: transparent;
-    /*box-shadow: 40px 0 100px -3px var(--color-Luz1), -40px 0 100px -3px var(--color-Luz2);*/
     z-index: auto;
 }
 
@@ -392,7 +410,6 @@ main {
     height: 67px;
     width: 45%;
     border-radius: 1000px;
-    border-style: solid;
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1rem;
@@ -404,7 +421,8 @@ main {
     z-index: auto;
 }
 
-.Main__AreaDeTrabajo__Botones__principal::after {
+.Main__AreaDeTrabajo__Botones__principal::after,
+.Main__AreaDeTrabajo__Botones__principal::before {
     content: "";
     position: absolute;
     border-radius: inherit;
@@ -413,9 +431,20 @@ main {
     z-index: -1;
 }
 
+
+.Main__AreaDeTrabajo__Botones__principal::before{
+    opacity: 0;
+    transition: opacity var(--transicion-botones);
+    filter: blur(2rem);
+}
+
+.Main__AreaDeTrabajo__Botones__principal:hover::before{
+    opacity: 1;
+}
+
+
 .Main__AreaDeTrabajo__Botones__principal:hover {
     background-color: transparent;
-    box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
     z-index: auto;
 }
 
@@ -441,7 +470,8 @@ main {
     z-index: auto;
 }
 
-.Main__AreaDeTrabajo__Botones__secundario::after {
+.Main__AreaDeTrabajo__Botones__secundario::after,
+.Main__AreaDeTrabajo__Botones__secundario::before {
     content: "";
     position: absolute;
     border-radius: inherit;
@@ -451,9 +481,20 @@ main {
 }
 
 
+.Main__AreaDeTrabajo__Botones__secundario::before{
+    opacity: 0;
+    transition: opacity var(--transicion-botones);
+    filter: blur(2rem);
+}
+
+.Main__AreaDeTrabajo__Botones__secundario:hover::before{
+    opacity: 1;
+}
+
+
+
 .Main__AreaDeTrabajo__Botones__secundario:hover {
     background-color: transparent;
-    box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
     z-index: auto;
 }
 
@@ -484,23 +525,81 @@ main {
     transition: opacity 0.2s;
 }
 
-.Main__AreaDeResultados__campo {
+#contenedor_salida{
     margin-top: 32px;
     margin-bottom: 32px;
-    resize: none;
-    border-radius: 32px;
-    border-color: var(--color-dos);
     height: 70vh;
-    width: 80%;
+    width: 85%;
+    position: relative;
+    border-radius: 32px;
+    display: none;
+}
+
+
+#contenedor_salida::before, 
+#contenedor_salida::after{
+    border-radius: inherit;
+    opacity: 0;
+    
+    content: "";
+    background-image: conic-gradient(from var(--angulo-gradiente) ,var(--color-boton2), var(--color-boton1),var(--color-boton2) );
+    transition: opacity 0.3s;
+    pointer-events: none;
+    animation: rotacion_color 5s linear infinite;
+    position:absolute;
+} 
+
+#contenedor_salida::before{
+    filter: blur(2rem);
+    inset: -0.5rem;
+    
+}
+
+
+#contenedor_salida::after{
+    inset: -0.2rem;
+}
+
+#contenedor_salida:hover::before{
+    opacity: 0.5;
+}
+
+
+#contenedor_salida:focus-within::before, 
+#contenedor_salida:focus-within::after {
+    opacity: 1;
+} 
+
+#contenedor_salida:hover .luz-interior{
+    opacity: 0.10;
+}
+
+
+#contenedor_salida:focus-within .luz-interior{
+    opacity:0.20;
+}
+
+
+
+
+
+.Main__AreaDeResultados__campo {
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 32px;
+    border: none;
     padding: 16px;
     background-image: linear-gradient(145deg, var(--color-dos), var(--color-dos), var(--color-uno));
-    border-width: 2px;
     font-family: var(--fuente-Inter);
     font-weight: 400;
     font-size: 1.5rem;
-    transition: opacity 4s , border-color 0.3s , background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
-    display: none;
+
+    resize: none;
 }
+
 
 
 .Main__AreaDeResultados__imagenInicial{
@@ -550,28 +649,35 @@ main {
     font-weight: 400;
     font-size: 1rem;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: auto;
     visibility: hidden;
     transition: opacity 0.3s, filter 0.1s ease-in-out, background-color var(--transicion-botones) ease-in-out , box-shadow var(--transicion-botones) ease-in-out;
 }
 
-.Main__AreaDeResultados__Boton::after {
+.Main__AreaDeResultados__Boton::after,
+.Main__AreaDeResultados__Boton::before {
     content: "";
     position: absolute;
-    height: 107%;
-    width: 102%;
-    border-radius: 1000px;
+    border-radius: inherit;
+    inset: -0.2rem;
     background-image: linear-gradient(to bottom right, var(--color-boton2), var(--color-boton1));
-    z-index: var(--color-Luz1);
     z-index: -1;
 }
 
+
+.Main__AreaDeResultados__Boton::before{
+    opacity: 0;
+    transition: opacity var(--transicion-botones);
+    filter: blur(2rem);
+}
+
+.Main__AreaDeResultados__Boton:hover::before{
+    opacity: 1;
+}
+
+
 .Main__AreaDeResultados__Boton:hover {
     background-color: transparent;
-    box-shadow: 40px 0 100px var(--color-Luz1), -40px 0 100px var(--color-Luz2);
     z-index: auto;
 
 }
@@ -600,7 +706,7 @@ strong{
     transition: opacity 0.3s;
     pointer-events: none;
     animation: rotacion_color 5s linear infinite;
-    filter: blur(2rem);
+    filter: blur(3rem);
     border-radius: 32px;
     
 }
