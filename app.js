@@ -2,7 +2,7 @@
 
 
 const cartel = ['imagenError', 'imagenInicial', 'parrafoResultado', 'tituloResultado']
-const iconos = ["Alura", "warning", "imagenError", "imagenInicial", "icono_tema", "icono_home", "icono_info"];
+const iconos = ["Alura", "warning", "imagenError", "imagenInicial", "icono_tema", "icono_info"];
 const bloques = ["bloque_principal", "bloque_secundario", "bloque_botones", "titulo"]
 const boton_tema = document.getElementById("boton_tema");
 
@@ -270,8 +270,8 @@ function esconderIconos() {
     let botones = document.querySelectorAll(".menu__boton");
     for (const elemento of botones) {
         elemento.classList.remove("fuera_de_pantalla");
-        elemento.classList.remove("aparecer_por_izquierda");
-        elemento.classList.add("salir_por_izquierda");
+        elemento.classList.remove("aparecer_de_pantalla");
+        elemento.classList.add("salir_de_pantalla");
     }
 }
 
@@ -279,8 +279,8 @@ function aparecerIconos() {
     let botones = document.querySelectorAll(".menu__boton");
     for (const elemento of botones) {
         elemento.classList.add("fuera_de_pantalla");
-        elemento.classList.remove("salir_por_izquierda");
-        elemento.classList.add("aparecer_por_izquierda");
+        elemento.classList.remove("salir_de_pantalla");
+        elemento.classList.add("aparecer_de_pantalla");
     }
 }
 
