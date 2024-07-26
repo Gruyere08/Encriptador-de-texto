@@ -50,6 +50,8 @@ boton_tema.addEventListener("click", function () {
     const temaActual = document.documentElement.getAttribute('tema');
     const temaNuevo = temaActual === 'oscuro' ? 'claro' : 'oscuro';
     document.querySelector("main").style.transition = "background-color 1s";
+    document.querySelector("footer").style.transition = "background-color 1s";
+    document.querySelector("body").style.transition = "background-color 1s";
     setTimeout(() => {
         document.documentElement.setAttribute('tema', temaNuevo);
         actualizarIconos();
