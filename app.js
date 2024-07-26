@@ -298,9 +298,9 @@ function oscuro() {
 
 
 function ilegal(str) {
-    /*La expresion regular no incluye exclamaciones preguntas ni signos de puntuacion
+    /*La expresion regular no incluye exclamaciones ni preguntas
     debido a que tecnicamente estos se consideran caracteres especiales*/
-    const regular = /[^a-z0-9 ]/;
+    const regular = /[^a-z0-9 ,.\n\r]/;
     return regular.test(str);
 }
 
