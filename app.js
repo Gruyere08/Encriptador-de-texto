@@ -161,7 +161,7 @@ function rechazar() {
         document.getElementById('imagenError').style.display = "inline";
         parrafo.style.display = "block";
         titulo.style.display = "block";
-        parrafo.innerHTML = "No se permiten <strong>mayusculas</strong> ni <strong>tildes</strong>."
+        parrafo.innerHTML = "No se permiten <strong>mayusculas</strong>, <strong>tildes</strong> ni <strong>caracteres especiales</strong>."
         titulo.textContent = "Algo anduvo mal."
         
         
@@ -298,7 +298,9 @@ function oscuro() {
 
 
 function ilegal(str) {
-    const regular = /[^a-z0-9]/;
+    /*La expresion regular no incluye exclamaciones preguntas ni signos de puntuacion
+    debido a que tecnicamente estos se consideran caracteres especiales*/
+    const regular = /[^a-z0-9 ]/;
     return regular.test(str);
 }
 
