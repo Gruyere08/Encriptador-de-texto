@@ -298,7 +298,7 @@ function oscuro() {
 
 
 function ilegal(str) {
-    const regular = /[A-ZÁÉÍÓÚÜáéíóú]/;
+    const regular = /[^a-z0-9]/;
     return regular.test(str);
 }
 
