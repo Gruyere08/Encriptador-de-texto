@@ -69,8 +69,6 @@ El algoritmo de codificación sigue las reglas establecidas por el programa **Or
 ***
 
 
-***
-
 ## 👤 Autor
 
 * Thiago Escalante / Gruyere08
