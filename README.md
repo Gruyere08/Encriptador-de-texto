@@ -54,16 +54,19 @@ El algoritmo de codificación sigue las reglas establecidas por el programa **Or
 
 ## 🖼️ Vistas del Proyecto
 
-Aquí se muestran las dos variantes de la interfaz: el modo claro y el modo oscuro.
-
 * **Modo Oscuro**
-    <img width="1353" height="634" alt="Captura de pantalla 2025-10-21 184137" src="https://github.com/user-attachments/assets/dcf5ea68-9612-4c4d-aa8c-88ba3d10055d" /><img width="812" height="1688" alt="127 0 0 1_5500_index html (2)" src="https://github.com/user-attachments/assets/c39ce260-e77f-4365-9466-a45b818caf08" />
-
-
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+        <img width="auto" height="250" alt="Captura de pantalla de la interfaz en modo oscuro (escritorio)" src="https://github.com/user-attachments/assets/dcf5ea68-9612-4c4d-aa8c-88ba3d10055d" />
+        <img width="auto" height="250" alt="Captura de pantalla de la interfaz en modo oscuro (móvil)" src="https://github.com/user-attachments/assets/c39ce260-e77f-4365-9466-a45b818caf08" />
+    </div>
 
 * **Modo Claro**
-    <img width="1344" height="628" alt="Captura de pantalla 2025-10-21 184159" src="https://github.com/user-attachments/assets/309ac4b2-9ef5-42dd-bd59-c9cb8f34d88c" /><img width="812" height="1688" alt="127 0 0 1_5500_index html (3)" src="https://github.com/user-attachments/assets/60413fde-beec-4844-984c-f66f8e1d08e7" />
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+        <img width="auto" height="250" alt="Captura de pantalla de la interfaz en modo claro (escritorio)" src="https://github.com/user-attachments/assets/309ac4b2-9ef5-42dd-bd59-c9cb8f34d88c" />
+        <img width="auto" height="250" alt="Captura de pantalla de la interfaz en modo claro (móvil)" src="https://github.com/user-attachments/assets/60413fde-beec-4844-984c-f66f8e1d08e7" />
+    </div>
 
+***
 
 
 ***
