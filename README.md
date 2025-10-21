@@ -7,6 +7,7 @@ Este proyecto es una aplicación web estática diseñada para **encriptar y dese
 ## ✨ Características
 
 * **Interfaz Intuitiva:** Diseño simple y amigable, con modo claro y oscuro (visible en las capturas).
+* **Diseño Responsivo:** La interfaz se adapta correctamente a **diversos tamaños de pantalla y dispositivos** (móviles, tabletas, escritorio).
 * **Funcionalidad Principal:** Permite al usuario ingresar un texto para ser encriptado o desencriptado con solo presionar un botón.
 * **Restricciones de Entrada:** El sistema acepta **solo letras minúsculas y sin tildes**, como se indica en la interfaz.
 * **Tecnologías:** Construido exclusivamente con **HTML**, **CSS** y **JavaScript**.
@@ -56,11 +57,13 @@ El algoritmo de codificación sigue las reglas establecidas por el programa **Or
 Aquí se muestran las dos variantes de la interfaz: el modo claro y el modo oscuro.
 
 * **Modo Oscuro**
-    <img width="1353" height="634" alt="Captura de pantalla 2025-10-21 184137" src="https://github.com/user-attachments/assets/dcf5ea68-9612-4c4d-aa8c-88ba3d10055d" />
+    <img width="1353" height="634" alt="Captura de pantalla 2025-10-21 184137" src="https://github.com/user-attachments/assets/dcf5ea68-9612-4c4d-aa8c-88ba3d10055d" /><img width="812" height="1688" alt="127 0 0 1_5500_index html (2)" src="https://github.com/user-attachments/assets/c39ce260-e77f-4365-9466-a45b818caf08" />
+
 
 
 * **Modo Claro**
-    <img width="1344" height="628" alt="Captura de pantalla 2025-10-21 184159" src="https://github.com/user-attachments/assets/309ac4b2-9ef5-42dd-bd59-c9cb8f34d88c" />
+    <img width="1344" height="628" alt="Captura de pantalla 2025-10-21 184159" src="https://github.com/user-attachments/assets/309ac4b2-9ef5-42dd-bd59-c9cb8f34d88c" /><img width="812" height="1688" alt="127 0 0 1_5500_index html (3)" src="https://github.com/user-attachments/assets/60413fde-beec-4844-984c-f66f8e1d08e7" />
+
 
 
 ***
