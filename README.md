@@ -56,17 +56,18 @@ El algoritmo de codificación sigue las reglas establecidas por el programa **Or
 Aquí se muestran las dos variantes de la interfaz: el modo claro y el modo oscuro.
 
 * **Modo Oscuro**
-    
+    <img width="1353" height="634" alt="Captura de pantalla 2025-10-21 184137" src="https://github.com/user-attachments/assets/dcf5ea68-9612-4c4d-aa8c-88ba3d10055d" />
+
 
 * **Modo Claro**
-    
+    <img width="1344" height="628" alt="Captura de pantalla 2025-10-21 184159" src="https://github.com/user-attachments/assets/309ac4b2-9ef5-42dd-bd59-c9cb8f34d88c" />
+
 
 ***
 
 ## 👤 Autor
 
-* [Tu Nombre o Usuario de GitHub/Contacto]
-
+* Thiago Escalante / Gruyere08
 ***
 
 ## 🎓 Proyecto Educativo
